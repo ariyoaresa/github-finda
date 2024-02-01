@@ -9,12 +9,21 @@
             aspect-ratio: 1/1;
             border-radius: 100%;
         }
+        .getuser{
+            background-color: green;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        #profile{
+            border: solid 1px black;
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <div><input type="text" placeholder="GitHub username" id="username">
-        <button onclick="getUser()">Search user</button>
+        <button class="getuser" onclick="getUser()">Search user</button>
         </div>
         <div id="profile"></div>
     </div>
@@ -33,10 +42,10 @@
             else{
                 const profileData = `
                 <img src="${data.avatar_url}" alt="User's Avatar" class="userImage">
-                <h1>${data.name}</h1>
-                <h4>${data.bio}</h4>
-                <p>Following: ${data.following}</p>
-                <p>Followers: ${data.followers}</p>
+                <h1 class="user_name">${data.name}</h1>
+                <h4 class="user_bio">${data.bio}</h4>
+                <p class="user_following">Following: ${data.following}</p>
+                <p class="user_followers">Followers: ${data.followers}</p>
                 `
                 profileDiv.innerHTML = profileData
             }
