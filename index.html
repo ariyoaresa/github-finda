@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub User Finder</title>
+    <style>
+        .userImage{
+            width: 60px;
+            aspect-ratio: 1/1;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div><input type="text" placeholder="GitHub username" id="username">
+        <button onclick="getUser()">Search user</button>
+        </div>
+        <div id="profile"></div>
+    </div>
+</body>
+<script>
+    function getUser() {
+        username = document.getElementById('username').value
+        
+        fetch(`https://api.github.com/users/${username}`)
+        .then(response => response.json())
+        .then(data => {
+            profileDiv = document.getElementById('profile');
+            if(data.message === "Not Found") {
+                profileDiv.innerHTML = "<h3>Profile Not Found </h3>"
+            }
+            else{
+                const profileData = `
+                <img src="${data.avatar_url}" alt="User's Avatar" class="userImage">
+                <h1>${data.name}</h1>
+                <h4>${data.bio}</h4>
+                <p>Following: ${data.following}</p>
+                <p>Followers: ${data.followers}</p>
+                `
+                profileDiv.innerHTML = profileData
+            }
+        })
+        .catch(error => console.error('Error: ', error));
+    }
+</script>
+</html>
+  
