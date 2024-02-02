@@ -17,6 +17,7 @@
             width: 100px;
             aspect-ratio: 1/1;
             border-radius: 100%;
+	    outline: none;
         }
         .getuser{
             background-color: green;
@@ -37,6 +38,11 @@
         .fandf{
             display: flex;
         }
+	    .github_view{
+		    background-color: green;
+		    color: white;
+		    outline: none;
+	    }
     </style>
 </head>
 <body>
@@ -68,6 +74,7 @@
                 <p class="user_followers">Followers: ${data.followers}</p>
                 </div>
                 <p class="user_followers">Public Repos: ${data.public_repos}</p>
+		<p class="github_view">View on GitHub: ${data.html_url}</p>		
                 `
                 profileDiv.innerHTML = profileData
             }
