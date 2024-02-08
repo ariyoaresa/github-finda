@@ -43,11 +43,13 @@
 	    }
 	    .itview{
 		    background-color: green;
+		    border-radius: 7px;
 	    }
 	    .itview a{
 		    text-decoration: none;
 		    color: white;
-		    padding: 10px;
+		    font-weight: bold;
+		    padding: 20px;
 	    }
     </style>
 </head>
@@ -80,7 +82,7 @@
                 <p class="user_followers">Followers: ${data.followers}</p>
                 </div>
                 <p class="user_followers">Public Repos: ${data.public_repos}</p>
-		<button class="itview"><a href="${data.html_url}">View on GitHub</a></button>	
+		<button class="itview"><a href="${data.html_url}" target="_blank">View on GitHub</a></button>	
                 `
                 profileDiv.innerHTML = profileData
             }
