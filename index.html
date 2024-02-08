@@ -1,9 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="og:image" property="og:image" content="https://ariyoaresa.me/github-finda/favicon.png">
     <link rel="shortcut icon" href="favicons.png" type="image/x-icon">
@@ -43,6 +41,14 @@
 		    color: white;
 		    outline: none;
 	    }
+	    .itview{
+		    background-color: green;
+	    }
+	    .itview a{
+		    text-decoration: none;
+		    color: white;
+		    padding: 10px;
+	    }
     </style>
 </head>
 <body>
@@ -74,7 +80,7 @@
                 <p class="user_followers">Followers: ${data.followers}</p>
                 </div>
                 <p class="user_followers">Public Repos: ${data.public_repos}</p>
-		<p class="github_view">View on GitHub: ${data.html_url}</p>		
+		<button class="itview"><a href="${data.html_url}">View on GitHub</a></button>	
                 `
                 profileDiv.innerHTML = profileData
             }
